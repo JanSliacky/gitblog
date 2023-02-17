@@ -1,0 +1,20 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>My New Hugo Site</title>
+    <link>https://jansliacky.github.io/giblog/</link>
+    <description>Recent content on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+        <atom:link href="https://jansliacky.github.io/giblog/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>First Post</title>
+      <link>https://jansliacky.github.io/giblog/first-post/</link>
+      <pubDate>Fri, 17 Feb 2023 12:01:58 +0100</pubDate>
+      
+      <guid>https://jansliacky.github.io/giblog/first-post/</guid>
+      <description>This is my first post And this is my first paragraph</description>
+    </item>
+  </channel>
+</rss>
