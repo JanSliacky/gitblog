@@ -1,3 +1,9 @@
 [submodule "themes/aether"]
 	path = themes/aether
 	url = https://github.com/josephhutch/aether.git
+[submodule "themes/universal"]
+	path = themes/universal
+	url = https://github.com/devcows/hugo-universal-theme.git
+[submodule "themes/portio"]
+	path = themes/portio
+	url = https://github.com/StaticMania/portio-hugo.git
