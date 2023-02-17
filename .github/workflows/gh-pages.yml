@@ -1,32 +1,28 @@
-name: github pages
+name: Validate Generated Files
 
 on:
   push:
     branches:
-      - main  # Set a branch that will trigger a deployment
+      - master
   pull_request:
+    branches:
+      - master
 
 jobs:
   deploy:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v3
-        with:
-          submodules: true  # Fetch Hugo themes (true OR recursive)
-          fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
+      - uses: actions/checkout@v2
+      
+      - name: Install Dependencies
+        run: |
+          sudo snap install hugo
+          pip install html5validator
 
-      - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v2
-        with:
-          hugo-version: 'latest'
-          # extended: true
+      - name: Build Example Site
+        run: |
+          cd exampleSite/
+          hugo --minify
 
-      - name: Build
-        run: hugo --minify
-
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
-        if: github.ref == 'refs/heads/main'
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public
+      - name: Validate Generated Files
+        run: html5validator --root exampleSite/public/ --also-check-css --ignore katex ontouch
